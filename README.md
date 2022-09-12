@@ -82,7 +82,7 @@ Y2K allows farming of Y2K token using these Synthetix forked contracts (adjustme
 sLoC = 152  
 LIBS =   
 Contract used to deploy the pair of "StakingRewards.sol" to reflect the Hedge/Risk vaults implementation above.  
-Must mention we used a keccack256 to hash a market index from "VaultFactory.sol" and its "Vault.sol" respective market epochEnd/id to represent the StakingRewards vaults as an index to be able to query it later.
+Must mention we used a keccak256 to hash a market index from "VaultFactory.sol" and its "Vault.sol" respective market epochEnd/id to represent the StakingRewards vaults as an index to be able to query it later.
 > Responsability:  
 - Create pair of Farms from Markets;
 
