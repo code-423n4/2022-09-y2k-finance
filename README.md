@@ -68,6 +68,7 @@ It is issued a token representing the depositors position which is 1 to 1 ratio'
 
 # Smart Contracts - PRIORITY
 Besides these Contracts and their libraries, the only interaction with external contracts is the Chainlink Oracle's
+![image](https://user-images.githubusercontent.com/15989933/189731174-9f2c5590-1263-4306-9a4e-5d4395c1510c.png)
 
 ### Controller.sol - HIGH
 Smart Contract used to call Oracles latest price data, and trigger epoch end or depeg events. They can be triggered if the Id of that Market/Vault epoch is less then the current block.timestamp, or if the current price of that insured pegged asset is below the Vault's Strike Price.
@@ -121,9 +122,18 @@ Must mention we used a keccack256 to hash a market index from "VaultFactory.sol"
 - Create pair of Farms from Markets;
 
 # Tests
+Since we are deploying on Arbitrum we are forking Arbitrum mainnet for tests, so testers need to specify the ```--fork-url ``` param for tests to pass!  
 
-# Concerns & Aditional Information
+# Concerns & Additional Information  
+We consider the name of the Token for frontend uses, to be in this format "y2kUSDC_99*" , this has both insured token name in CAPS and strike Price. 
 
 # Prepare Local Environment
+``` forge install ```
+Create source .env with the tester's private key and rpc.
 
 # Testnet Deployment
+Inside scripts/DeployRinkeby.sol , is a deploy script with the Chainlink Oracle addresses from Arbitrum Rinkeby.  
+There is a README inside that folder to help with deployments.
+To get testnet ETH use this faucet: https://rinkebyfaucet.com/ and then bridge to Arbitrum Rinkeby https://bridge.arbitrum.io/?l2ChainId=421611  
+We use a GovToken.sol only for mockup this contract does not represent our final Y2K token!  
+
