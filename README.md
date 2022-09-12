@@ -95,7 +95,7 @@ For additional initial testing parameters check Foundry Book (https://book.getfo
 We consider the name of the Token for frontend uses, to be in this format "y2kUSDC_99*" , this has both insured token name in CAPS and strike Price. 
 When fuzzing deposits there is a limit of possible valid runs using the Foundry fuzzer, and as such we would like to assess if this is due to a logic fault in the contracts or in testing.
 When testing for withdrawal approval on behalf of another user we are concerned this might not work as intended, so we would like to assess this as well. 
-When using ``` forge coverage ``` tool the automated function coverage output might not work as intended (as in not displaying all of the covered code on the testing suite, as of the latest Foundry release)
+When using ``` forge coverage ``` tool the automated function coverage output might not work as intended (as in not displaying all of the code covered by the testing suite properly, as of the latest Foundry release)
 
 # Prepare Local Environment
 ``` forge install ```
