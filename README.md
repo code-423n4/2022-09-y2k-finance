@@ -105,11 +105,12 @@ Must mention we used a keccak256 to hash a market index from "VaultFactory.sol" 
 Since we are deploying on Arbitrum we are forking Arbitrum mainnet for tests, so testers need to specify the ```--fork-url ``` param for tests to pass!
 Example: ```forge test --match-contract AssertTest --fork-url https://arb1.arbitrum.io/rpc -vv ```
 For additional initial testing parameters check Foundry Book (https://book.getfoundry.sh/faq)
+When fuzzing deposits there is a limit of possible valid runs using the Foundry fuzzer, and as such we would like to assess if this is due to a logic fault in the contracts or in testing (applies to testFuzzDeposit() and testFuzzWithdraw() functions in FuzzTest.t.sol since they fail before the fuzz runs end).
+When testing for withdrawal approval on behalf of another user we are concerned this might not work as intended, so we would like to assess this as well (when running testOwnerAuthorize() from AssertTest.t.sol it fails).
+In total, 3 tests are failing.
 
 # Concerns & Additional Information  
 We consider the name of the Token for frontend uses, to be in this format "y2kUSDC_99*" , this has both insured token name in CAPS and strike Price. 
-When fuzzing deposits there is a limit of possible valid runs using the Foundry fuzzer, and as such we would like to assess if this is due to a logic fault in the contracts or in testing.
-When testing for withdrawal approval on behalf of another user we are concerned this might not work as intended, so we would like to assess this as well. 
 When using ``` forge coverage ``` tool the automated function coverage output might not work as intended (as in not displaying all of the code covered by the testing suite properly, as of the latest Foundry release)
 
 # Prepare Local Environment
