@@ -32,7 +32,8 @@ Besides these Contracts and their libraries, the only interaction with external 
 
 ### Controller.sol - HIGH
 sLoC = 320    
-LIBS = solmate/ERC20 , chainlink/AggregatorV3Interface , chainlink/AggregatorV2V3Interface    
+LIBS = solmate/ERC20 , chainlink/AggregatorV3Interface , chainlink/AggregatorV2V3Interface     
+   
 Smart Contract used to call Oracles' latest price data, and trigger epoch end or depeg events. They can be triggered if the Id of that Market/Vault epoch is less then the current block.timestamp, or if the current price of that insured pegged asset is below the Vaults' Strike Price.
 These functions will then call that Market, figure out the pair of Vaults of that Market, and transfer the underlying assets between the Risk/Hedge parties. Must mention that inside this contract we convert all price feed results to 18 decimal points, so we can compare to the Strike Price passed by the admin on "VaultFactory.sol"
 > Responsibility:  
@@ -43,6 +44,7 @@ These functions will then call that Market, figure out the pair of Vaults of tha
 ### oracles/PegOracle.sol - HIGH  
 sLoC = 130  
 LIBS = chainlink/AggregatorV3Interface   
+  
 Since Y2K uses pegged assets, Chainlink does not have the convertion ratio from a Token to its pegged Token, example: stETH to ETH. Since Chainlink does not have it, we implemented an Oracle that divides the price of stETH by the price of ETH and get a ratio from it. If that ratio is 1, the Token is pegged, otherwise is depegged.
 > Responsibility:  
 - Calculate ratio between two given Oracles;  
@@ -50,6 +52,7 @@ Since Y2K uses pegged assets, Chainlink does not have the convertion ratio from 
 ### SemiFungibleVault.sol - MEDIUM 
 sLoC = 287  
 LIBS = solmate/ERC20, solmate/SafeTransferLib, solmate/FixedPointMathLib, openzeppelin/ERC1155Supply, openzeppelin/ERC1155  
+  
 Y2K leverages ERC4626 Vault standard for this protocol, this contract is a fork of that standard, although we replaced all uses of ERC20 to ERC1155. This is done because we want vaults to have multiple tokens that represent each epoch, so in this contract, ID for the ERC1155 mints has to be the UNIX timestamp of the epoch end date. Also we want to make this into an EIP, Semi Fungible MultiToken Vaults.  
 > Responsibility:  
 - Deposit;
@@ -57,7 +60,8 @@ Y2K leverages ERC4626 Vault standard for this protocol, this contract is a fork 
 
 ### Vault.sol - HIGH
 sLoC = 452      
-LIBS = solmate/ERC20, solmate/FixedPointMathLib, openzeppelin/ReentrancyGuard  
+LIBS = solmate/ERC20, solmate/FixedPointMathLib, openzeppelin/ReentrancyGuard    
+   
 Implements "SemiFungibleVault.sol", a Vault in this protocol is defined by its market, a Vault/Market is thus a combination of these params: Token Insured & Strike Price.  
 Each Vault has then multiple epochs, defined by the ERC1155 Id, allows deposits in WETH only, and mints ERC1155 backed 1 to 1 by that WETH, deposits can only be done until a certain date, called Epoch Begin, minus a variable called Timewindow which is used to make some time between the start of the insurance epoch and last day of deposits.  
 Withdraws of WETH can only happen when "Controller.sol" triggers the end of epoch or triggers a depeg event. Withdraws have a fee associated with it, which is sent to the treasury, such FEE is represented in this form: multiply your %(percent) value by 10, Example: if you want a fee of 0.5% , insert 5. Fees are attached to epochs timestamps!  
@@ -72,6 +76,7 @@ Also we allow deposits in ETH, but we convert it to WETH.
 ### VaultFactory.sol - MEDIUM
 sLoC = 392    
 LIBS =     
+  
 Factory for the creation of Vault pairs. A pair of Vaults constructs a Market, a Hedge and a Risk Vault. As said before, Markets are determined by its Token Insured & Strike Price, and have an Index associated with it.  Since Markets have Vaults that always come in pairs, some functions use that assumption for their logic, for example arrays that return the vault addresses have in the [0] position the Hedge Vault and on the [1] position the Risk Vault.
 This contract allows the Admin role to change params inside the Vault, and also the Oracle associated with the insured token.  
 Must mention that we expect admin to pass the StrikePrice as a 18 decimal int, so we can compare to the Oracle Price using the same decimals.
@@ -81,7 +86,8 @@ Must mention that we expect admin to pass the StrikePrice as a 18 decimal int, s
 
 ### rewards/StakingRewards.sol - LOW
 sLoC = 233  
-LIBS = openzeppelin/SafeMath, openzeppelin/ReentrancyGuard, openzeppelin/ERC115Holder, openzeppelin/Pausable, openzeppelin/IERC115, solmate/SafeTransferLib, solmate/ERC20    
+LIBS = openzeppelin/SafeMath, openzeppelin/ReentrancyGuard, openzeppelin/ERC115Holder, openzeppelin/Pausable, openzeppelin/IERC115, solmate/SafeTransferLib, solmate/ERC20      
+   
 Y2K allows farming of Y2K token using these Synthetix forked contracts (adjustments were made to these contracts), replacing all mentions of ERC20 to ERC1155 to allow deposits in "Vault.sol" tokens. Also some params are passed (RewardRate and RewardDuration) to the constructor for admin use.
 > Responsibility:  
 - Stake;
@@ -90,6 +96,7 @@ Y2K allows farming of Y2K token using these Synthetix forked contracts (adjustme
 ### rewards/RewardsFactory.sol - LOW  
 sLoC = 152  
 LIBS =   
+   
 Contract used to deploy the pair of "StakingRewards.sol" to reflect the Hedge/Risk vaults implementation above.  
 Must mention we used a keccak256 to hash a market index from "VaultFactory.sol" and its "Vault.sol" respective market epochEnd/id to represent the StakingRewards vaults as an index to be able to query it later.
 > Responsibility:  
