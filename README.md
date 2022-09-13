@@ -7,7 +7,6 @@
 - Starts September 14, 2022 20:00 UTC
 - Ends September 19, 2022 20:00 UTC
 
-[ ⭐️ SPONSORS ADD INFO HERE ]
 # Protocol overview
 Y2K Finance is a protocol to insure(hedge) against pegged assets and speculate on depegs.  
 The aim of this protocol is to allow users to HEDGE & RISK these insurances, also providing yield to incentivize early depositors on both side of insurance (buyers and sellers).  
