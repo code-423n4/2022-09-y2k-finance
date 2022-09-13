@@ -20,13 +20,22 @@ It is issued a token representing the depositors position which is 1 to 1 ratio'
 # Smart Contracts - PRIORITY
 Besides these Contracts and their libraries, the only interaction with external contracts is the Chainlink Oracles'
 ![image](https://user-images.githubusercontent.com/15989933/189731174-9f2c5590-1263-4306-9a4e-5d4395c1510c.png)
+## All other source contracts (not in scope)
+
+| File                                         | SLOC |
+|----------------------------------------------|------|
+| src/interfaces/IWETH.sol                     | 5    |
+| src/rewards/RewardsDistributionRecipient.sol | 21   |
+| src/rewards/IStakingRewards.sol              | 6    |
+| src/rewards/Owned.sol                        | 43   |
+| Totals                                       | 75   |  
 
 ### Controller.sol - HIGH
 sLoC = 320    
 LIBS = solmate/ERC20 , chainlink/AggregatorV3Interface , chainlink/AggregatorV2V3Interface    
 Smart Contract used to call Oracles' latest price data, and trigger epoch end or depeg events. They can be triggered if the Id of that Market/Vault epoch is less then the current block.timestamp, or if the current price of that insured pegged asset is below the Vaults' Strike Price.
 These functions will then call that Market, figure out the pair of Vaults of that Market, and transfer the underlying assets between the Risk/Hedge parties. Must mention that inside this contract we convert all price feed results to 18 decimal points, so we can compare to the Strike Price passed by the admin on "VaultFactory.sol"
-> Responsability:  
+> Responsibility:  
 - Trigger Depegs;  
 - Trigger end of Epoch;  
 - Check Oracle Price Feed converted to 18 decimals;  
@@ -35,14 +44,14 @@ These functions will then call that Market, figure out the pair of Vaults of tha
 sLoC = 130  
 LIBS = chainlink/AggregatorV3Interface   
 Since Y2K uses pegged assets, Chainlink does not have the convertion ratio from a Token to its pegged Token, example: stETH to ETH. Since Chainlink does not have it, we implemented an Oracle that divides the price of stETH by the price of ETH and get a ratio from it. If that ratio is 1, the Token is pegged, otherwise is depegged.
-> Responsability:  
+> Responsibility:  
 - Calculate ratio between two given Oracles;  
 
 ### SemiFungibleVault.sol - MEDIUM 
 sLoC = 287  
 LIBS = solmate/ERC20, solmate/SafeTransferLib, solmate/FixedPointMathLib, openzeppelin/ERC1155Supply, openzeppelin/ERC1155  
 Y2K leverages ERC4626 Vault standard for this protocol, this contract is a fork of that standard, although we replaced all uses of ERC20 to ERC1155. This is done because we want vaults to have multiple tokens that represent each epoch, so in this contract, ID for the ERC1155 mints has to be the UNIX timestamp of the epoch end date. Also we want to make this into an EIP, Semi Fungible MultiToken Vaults.  
-> Responsability:  
+> Responsibility:  
 - Deposit;
 - Withdraw;  
 
@@ -56,7 +65,7 @@ To make withdraw amount calculations after the swap of assets, we calculate how 
 Must mention that we want to make these Vaults usable by DAOs, so we accept deposits and withdraws on behalf of other users, by using approve ERC1155 functions on withdraw, and recipient/owner params inside both deposit/withdraw functions.  
 These contracts have the functions needed to swap assets between Vaults, from Hedge to Risk vault and vice-versa.
 Also we allow deposits in ETH, but we convert it to WETH.
-> Responsability:  
+> Responsibility:  
 - Deposit;
 - Withdraw;  
 
@@ -74,7 +83,7 @@ Must mention that we expect admin to pass the StrikePrice as a 18 decimal int, s
 sLoC = 233  
 LIBS = openzeppelin/SafeMath, openzeppelin/ReentrancyGuard, openzeppelin/ERC115Holder, openzeppelin/Pausable, openzeppelin/IERC115, solmate/SafeTransferLib, solmate/ERC20    
 Y2K allows farming of Y2K token using these Synthetix forked contracts (adjustments were made to these contracts), replacing all mentions of ERC20 to ERC1155 to allow deposits in "Vault.sol" tokens. Also some params are passed (RewardRate and RewardDuration) to the constructor for admin use.
-> Responsability:  
+> Responsibility:  
 - Stake;
 - Withdraw;  
 
@@ -83,7 +92,7 @@ sLoC = 152
 LIBS =   
 Contract used to deploy the pair of "StakingRewards.sol" to reflect the Hedge/Risk vaults implementation above.  
 Must mention we used a keccak256 to hash a market index from "VaultFactory.sol" and its "Vault.sol" respective market epochEnd/id to represent the StakingRewards vaults as an index to be able to query it later.
-> Responsability:  
+> Responsibility:  
 - Create pair of Farms from Markets;
 
 # Tests
