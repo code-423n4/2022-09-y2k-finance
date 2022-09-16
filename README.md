@@ -19,16 +19,8 @@ It is issued a token representing the depositors position which is 1 to 1 ratio'
 # Smart Contracts - PRIORITY
 Besides these Contracts and their libraries, the only interaction with external contracts is the Chainlink Oracles'
 ![image](https://user-images.githubusercontent.com/15989933/189731174-9f2c5590-1263-4306-9a4e-5d4395c1510c.png)
-## All other source contracts (not in scope)
-
-| File                                         | SLOC |
-|----------------------------------------------|------|
-| src/interfaces/IWETH.sol                     | 5    |
-| src/rewards/RewardsDistributionRecipient.sol | 21   |
-| src/rewards/IStakingRewards.sol              | 6    |
-| src/rewards/Owned.sol                        | 43   |
-| Totals                                       | 75   |  
-
+ 
+ 
 ### Controller.sol - HIGH
 sLoC = 320    
 LIBS = solmate/ERC20 , chainlink/AggregatorV3Interface , chainlink/AggregatorV2V3Interface     
@@ -100,6 +92,20 @@ Contract used to deploy the pair of "StakingRewards.sol" to reflect the Hedge/Ri
 Must mention we used a keccak256 to hash a market index from "VaultFactory.sol" and its "Vault.sol" respective market epochEnd/id to represent the StakingRewards vaults as an index to be able to query it later.
 > Responsibility:  
 - Create pair of Farms from Markets;
+
+
+## All other source contracts (not in scope)
+
+| File                                         | SLOC |
+|----------------------------------------------|------|
+| src/interfaces/IWETH.sol                     | 5    |
+| src/rewards/RewardsDistributionRecipient.sol | 21   |
+| src/rewards/IStakingRewards.sol              | 6    |
+| src/rewards/Owned.sol                        | 43   |
+| Totals                                       | 75   | 
+
+
+
 
 # Tests
 Since we are deploying on Arbitrum we are forking Arbitrum mainnet for tests, so testers need to specify the ```--fork-url ``` param for tests to pass!
