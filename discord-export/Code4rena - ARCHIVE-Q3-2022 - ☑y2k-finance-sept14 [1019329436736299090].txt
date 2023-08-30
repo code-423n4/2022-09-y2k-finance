@@ -1,0 +1,485 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-Q3-2022 / ☑y2k-finance-sept14
+==============================================================
+
+[09/13/2022 7:35 PM] kartoonjoy (pinned)
+👋 Hello and welcome to the contest channel for the $50K USDC **Y2K Finance** contest!
+
+📆 Contest opens 09/14/2022 8:00 PM (20:00 UTC) and runs through 09/19/2022 8:00 PM (20:00 UTC) (5 days).
+
+Please give a warm welcome to the Y2K Finance team, particularly @0xNexusFlip and @MiguelBits, who will be available for questions either here in the channel or via DM.
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this contest, consider enabling notifications for this channel. 🐺 ⏰
+
+Contest Page: https://code4rena.com/contests/2022-09-y2k-finance-contest
+
+{Embed}
+https://code4rena.com/contests/2022-09-y2k-finance-contest
+Code4rena Y2k Finance contest
+$50,000 USDC
+14 September 2022—19 September 2022
+Code4rena - ARCHIVE-Q3-2022 - ☑y2k-finance-sept14 [1019329436736299090].txt_Files/C4-banner-7C19B.png
+
+{Reactions}
+4739_Skeletor (6) 
+
+[09/13/2022 7:45 PM] minh___
+nice logo
+
+{Reactions}
+💯 (16) 
+
+[09/14/2022 9:53 AM] MiguelBits#2642
+Gm
+
+
+[09/14/2022 9:54 AM] MiguelBits#2642
+Any test related questions be sure to include @0xNexusFlip
+
+{Reactions}
+thankyou (2) 
+
+[09/14/2022 11:38 AM] kartoonjoy
+Pinned a message.
+
+
+[09/14/2022 1:41 PM] mathewthomas_
+Hello Y2K team. In the https://www.y2k.finance/mint page, while selecting assets, the assets are not getting loaded. It is showing , Loading ..... for a very long time. I have tried it yesterday also.
+
+{Embed}
+https://www.y2k.finance/mint
+Y2K Finance
+Pricing risk in exotic peg markets
+Code4rena - ARCHIVE-Q3-2022 - ☑y2k-finance-sept14 [1019329436736299090].txt_Files/og-image-EB10F.png
+
+
+[09/14/2022 6:17 PM] nexusflip
+We deployed it on testnet a few days ago but we already closed the testing epoch. As such, the website is not supposed to have any onchain functionality until our actual launch. Please bear in mind that we specifically submitted our repo for auditing, not the website itself.
+
+{Reactions}
+chefskiss 
+
+[09/15/2022 1:19 AM] ladboy233
+both Vaults(hedge and risk) will swap their total assets with the other party.
+
+
+[09/15/2022 1:19 AM] ladboy233
+what does that mean?
+
+
+[09/15/2022 4:16 AM] mathewthomas_
+Thank you very much. I have just mentioned it just to let you know, in case. I know that at this point of time, the audit is specifically for the repo only.  Y2K finance is a very good project with amazing potential.Have a good day.
+
+
+[09/15/2022 9:43 AM] MiguelBits#2642
+The WETH inside each vault will be tranfered to the other one. Risk will send the underlying WETH of that epoch to the Hedge vault, and vice versa
+
+
+[09/15/2022 2:55 PM] rustyrabbit
+is 'oracles/PegOracle.sol' in scope or not ? It only seems to be used from the tests.
+
+
+[09/15/2022 3:09 PM] rustyrabbit
+I presume it's deployed and then used as any other Chainlink oracle ?
+
+
+[09/15/2022 3:55 PM] nexusflip
+@MiguelBits
+
+
+[09/15/2022 3:55 PM] MiguelBits#2642
+Yes
+
+
+[09/15/2022 3:55 PM] MiguelBits#2642
+And yes 🙂
+
+
+[09/15/2022 4:09 PM] praneshasp
+hi guys, found the issue with the `testOwnerAuthorize()` (one of the failing test cases) .. should I submit this as a QA report? (this is my first submission btw... )
+
+
+[09/15/2022 4:11 PM] nexusflip
+Check the readme on the repo, everything about failing tests is detailed there
+
+
+[09/15/2022 4:12 PM] praneshasp
+Found this comment: `  //@dev: please assess this case and check if contract logic fault or test logic fault` in the Assert.t.sol
+
+
+[09/15/2022 4:12 PM] praneshasp
+is it for the wardens or for the internal team?
+
+
+[09/15/2022 4:13 PM] praneshasp
+its both test and logic fault
+
+
+[09/15/2022 4:13 PM] nexusflip
+For wardens, please check README.md, specifically the "Tests" and "Concerns & Additional Information" tabs
+
+
+[09/15/2022 4:14 PM] nexusflip
+If you have a possible solution for this problem submit a report and we will review it
+
+
+[09/15/2022 4:14 PM] nexusflip
+Let me know if I can be of any additional assistance
+
+
+[09/15/2022 4:14 PM] praneshasp
+sure will do.. thanks!!
+
+
+[09/15/2022 5:53 PM] zachobront
+@0xNexusFlip Adding you as friend so I can DM
+
+
+[09/15/2022 10:00 PM] christian_kuri
+Are this the only ones contracts in the scope?
+
+
+[09/15/2022 10:00 PM] christian_kuri
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2022 - ☑y2k-finance-sept14 [1019329436736299090].txt_Files/unknown-07D9E.png
+
+
+[09/15/2022 10:04 PM] Franfran#5067
+"not in scope"
+
+{Reactions}
+😂 (12) 
+
+[09/15/2022 10:20 PM] 0x1f8b
+Weird scope, the table with sloc for NOT, I was confused too...
+
+{Reactions}
+👍 
+
+[09/15/2022 11:16 PM] dravee
+It became pretty standard, even on the other running contest. I agree it should've been put *after* the files in Scope though, and that slocs might be more confusing than useful. Thanks for the feedback 👍
+
+
+[09/16/2022 12:52 AM] rotcivegaf
+could someone run the tests or compile?
+
+
+[09/16/2022 2:00 AM] nexusflip
+Please refer to the "Tests" tab in the readme for additional information on how to run tests. For compiling, you need the Foundry libraries preinstalled (refer to Foundry book at https://book.getfoundry.sh/ for a quick guide on how to set it up, afterwards just use the "forge build" command on the terminal)
+
+{Embed}
+https://book.getfoundry.sh/
+Foundry Book
+A book on all things Foundry
+Code4rena - ARCHIVE-Q3-2022 - ☑y2k-finance-sept14 [1019329436736299090].txt_Files/card-24F4E.png
+
+
+[09/16/2022 5:36 AM] c3phas.
+Pretty confusing
+
+{Reactions}
+👍 
+
+[09/16/2022 9:34 AM] dravee
+Should be better now thanks to @kartoonjoy | C4 🎇🎇 's intervention 😄
+
+{Reactions}
+hi5 (3) 👍 
+
+[09/16/2022 10:20 AM] scaraven
+Hi, I can't quite make sense of this paragraph here in the docs. Does that mean that if a depeg event occurs or an epoch ends then user fees are calculated before swapping funds between vaults? Does the protocol take a fee from the funds which belonged to the other vault and if so how does it do this?
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2022 - ☑y2k-finance-sept14 [1019329436736299090].txt_Files/unknown-27B0B.png
+
+
+[09/16/2022 12:04 PM] MiguelBits#2642
+Fees are taken on your withdraw of assets
+
+
+[09/16/2022 12:06 PM] MiguelBits#2642
+Which happens after swapping tokens
+
+
+[09/16/2022 1:08 PM] scaraven
+thx
+
+
+[09/16/2022 3:45 PM] anonnp
+What is the idea behind `timewindow` in `Vault.sol`
+
+
+[09/16/2022 4:35 PM] MiguelBits#2642
+It is the timewindown between the start of insurance epoch
+
+
+[09/16/2022 4:35 PM] MiguelBits#2642
+And the last day allowed to deposit
+
+
+[09/16/2022 4:35 PM] MiguelBits#2642
+🙏
+
+
+[09/16/2022 6:36 PM] Saintcode_#8823
+ong
+
+
+[09/17/2022 12:05 PM] ak19966
+@MiguelBits  sent you request
+
+{Reactions}
+👋 (2) 
+
+[09/17/2022 6:50 PM] horsefacts
+Hi all! I'm trying to better understand when and how the `PegOracle` is used. It looks like the oracle passed in `VaultFactory#createNewMarket` is either an unwrapped Chainlink TOKEN/USD price feed or a wrapped `PegOracle` feed depending on the pair, is that right? If so, are there other token/token pairs besides stETH/ETH you intend to support? (for example, other stable/stable pairs like FRAX/USDC, USDT/DAI, etc.)
+
+{Reactions}
+☝️ (4) 
+
+[09/18/2022 5:32 PM] MiguelBits#2642
+Yes another example would be BTC and WBTC
+
+
+[09/18/2022 5:32 PM] MiguelBits#2642
+You are correct ser
+
+{Reactions}
+👍 
+
+[09/18/2022 10:30 PM] acegawd
+Who can I DM @MiguelBits or @0xNexusFlip?
+
+
+[09/18/2022 10:41 PM] MiguelBits#2642
+🫡
+
+
+[09/18/2022 10:51 PM] .respx
+Also sent you a friend request
+
+
+[09/18/2022 11:01 PM] acegawd
+sent a friend request @MiguelBits
+
+
+[09/19/2022 11:58 AM] carrotsmuggler
+i had a question @MiguelBits i sent you a friend request
+
+{Reactions}
+9255discord 
+
+[09/19/2022 8:02 PM] C4
+**🚨 CONTEST ALERT**
+
+@🐺wardens The **Y2K Finance** contest is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: the **Y2K Finance** team will review the findings over the next couple of days, and then we'll pass them off to the judge. Keep an eye on #📢announcements for regular updates on how the contest is progressing through awarding 🤑🏆, judging 🧑‍⚖️ and reporting 📜. Feel free to ping a gardener if you have questions along the way!
+
+{Reactions}
+C4Keycap 
+
+[10/25/2022 3:39 PM] ladboy233
+How is the judging going 🙂
+
+
+[10/27/2022 10:40 AM] R2#8087
+Hi guys
+Any updates?
+
+
+[10/28/2022 8:53 AM] hickuphh3
+Was on vacation the past week tll today, will resume judging tmr
+
+{Reactions}
+thankyou (5) catvibe (5) 
+
+[11/05/2022 11:37 AM] ladboy233
+How is the judging going? Hope it going well!
+
+
+[11/08/2022 12:53 AM] hickuphh3
+Should be done within the next couple of days
+
+{Reactions}
+👍🏻 (3) 
+
+[11/11/2022 8:29 AM] R2#8087
+Looking forward to get results 🐨
+
+
+[11/14/2022 3:32 PM] mathewthomas_
+Good evening. It is almost two months since we submitted the audit report. Will you be kind enough to release the results?
+
+{Reactions}
+👀 (8) 
+
+[11/18/2022 12:15 PM] un_for_given
+@hickuphh3 
+any update?
+
+
+[11/18/2022 12:16 PM] hickuphh3
+Post judging QA ended, awarding calculations should be in progress
+
+{Reactions}
+🔥 (5) 
+
+[11/23/2022 1:28 PM] bulej93
+https://github.com/code-423n4/code423n4.com/pull/5632/commits/4a275bf551ed9414eced5156803641c5136e7226
+
+{Embed}
+https://github.com/code-423n4/code423n4.com/pull/5632/commits/4a275bf551ed9414eced5156803641c5136e7226
+Add contest results by CloudEllie · Pull Request #5632 · code-423n4...
+Code4rena - ARCHIVE-Q3-2022 - ☑y2k-finance-sept14 [1019329436736299090].txt_Files/84729667-C9F7E
+
+
+[11/23/2022 2:14 PM] ladboy233
+👆
+
+
+[11/23/2022 6:55 PM] itsmetechjay
+🤑 🎉 Awards for **Y2K Finance**: 
+
+$6,498.14 USDC » PwnPatrol (@obront, @Throttle)
+$5,343.26 USDC » @eierina 
+$4,430.89 USDC » @Roman 
+$4,255.30 USDC » @0x52 
+$4,088.77 USDC » @cccz 
+$2,541.43 USDC » @csanuragjain 
+$1,849.16 USDC » @Deleted User 
+$1,626.32 USDC » @unforgiven 
+$1,541.14 USDC » @yixxas 
+$1,140.18 USDC » 0xPanas (@Bronicle, @Deivitto)
+$1,006.64 USDC » @Respx 
+$995.78 USDC » @Bahurum 
+$984.30 USDC » @Jeiwan 
+$853.37 USDC » @rbserver 
+$782.96 USDC » @rvierdiiev 
+$745.55 USDC » @Thunder 
+$713.52 USDC » @0x1f8b 
+$664.72 USDC » @datapunk 
+$630.93 USDC » @async 
+$545.13 USDC » @hyh 
+$544.98 USDC » @R2
+$529.56 USDC » @carrotsmuggler 
+$470.89 USDC » @pashov 
+$388.90 USDC » @thebensams 
+$300.01 USDC » @bin2chen 
+$253.02 USDC » @ak1
+$247.73 USDC » @Tointer 
+$245.01 USDC » @Deivitto 
+$245.01 USDC » @robee 
+$216.37 USDC » @Rolezn 
+$214.71 USDC » @imare 
+$206.50 USDC » @ladboy233小伙子 
+$175.30 USDC » @0xNazgul 
+$169.47 USDC » @rokinot 
+$167.09 USDC » @scaraven 
+$163.57 USDC » @Chom 
+$163.57 USDC » @nalus 
+$161.88 USDC » @wagmi 
+$142.83 USDC » @fatherOfBlocks 
+$142.80 USDC » @Saintcode_ 
+$125.26 USDC » @Ch_301 
+$122.47 USDC » @joestakey 
+$110.03 USDC » @anon 
+$102.03 USDC » KIntern_NA (@TrungOre, @duc)
+$102.03 USDC » @Rotcivegaf 
+$97.46 USDC » @leosathya 
+$89.45 USDC » @c3phas 
+$89.45 USDC » @gogo 
+$89.45 USDC » @jonatascm 
+$89.45 USDC » @lukris02 
+$89.45 USDC » @thinklab 
+$89.45 USDC » @RaymondFam 
+$89.45 USDC » @simon135 
+$89.41 USDC » @durianSausage 
+$85.85 USDC » @haruxe 
+$85.85 USDC » @peritoflores 
+$73.23 USDC » @auditor0517 
+$73.23 USDC » @zzzitron 
+$68.68 USDC » @pfapostol 
+$52.83 USDC » @__141345__ 
+$52.83 USDC » @_Adam 
+$52.83 USDC » @zishansami 
+$52.83 USDC » @ch0bu 
+$52.83 USDC » @cryptostellar5 
+$52.83 USDC » @dharma09 
+$52.83 USDC » @Diana 
+$52.83 USDC » @gianganhnguyen 
+$52.83 USDC » @jag 
+$52.83 USDC » @malinariy 
+$52.83 USDC » @MiloTruck 
+$52.83 USDC » @peiw 
+$52.83 USDC » @Prasant Gupta 
+$52.83 USDC » @ReyAdmirado 
+$52.83 USDC » @Rohan 
+$52.83 USDC » @seyni 
+$52.80 USDC » @0xc0ffEE 
+$52.80 USDC » @0xSmartContract 
+$52.80 USDC » @ajtra 
+$52.80 USDC » @code-cipher 
+$52.80 USDC » @Bnke 
+$52.80 USDC » @djxploit 
+$52.80 USDC » @EricTee 
+$52.80 USDC » @Ruhum 
+$36.62 USDC » @masa 
+$36.62 USDC » @brgltd 
+$36.62 USDC » @CodingNameKiki 
+$36.62 USDC » kv
+$36.62 USDC » @Picodes | Angle 
+$36.62 USDC » @SooYa 
+$36.62 USDC » V_B (@Barichek, @Vlad B | zkSync)
+
+
+[11/23/2022 6:55 PM] itsmetechjay
+$36.61 USDC » @teawaterwire 
+$16.18 USDC » @0X040 
+$16.18 USDC » @0xkatana 
+$16.18 USDC » @d3e4 
+$16.18 USDC » @delfin454000 
+$16.18 USDC » @Ignacio 
+$16.18 USDC » JAGADESH
+$16.18 USDC » @peanuts 
+$16.18 USDC » @RoiEvenHaim 
+$16.18 USDC » @Samatak 
+$16.18 USDC » @slowmoses 
+$16.18 USDC » @Sm4rty 
+$16.18 USDC » @SnowMan 
+$16.18 USDC » @sryysryy 
+$16.18 USDC » @tnevler 
+$16.18 USDC » @Tomio 
+$16.18 USDC » @Tomo | NinjAudit 
+$16.18 USDC » WilliamAmbrozic
+$8.01 USDC » @cryptphi 
+$8.01 USDC » @JC
+
+🏁 Findings summary
+---------------------------
+High risk findings: 66 total, 9 unique
+Med risk findings: 61 total, 16 unique
+Gas optimization reports: 72
+QA reports: 59
+
+Awards will be distributed on Polygon within the next 1-2 weeks. Congratulations all! 💸 💸 💸
+
+*Note: If you participated in this contest and don’t see your name on this list, please wait until the report is published and the findings repo is made public to check on your submissions.*
+
+
+[11/23/2022 8:18 PM] carrotsmuggler
+Finally broke $20!! 🥳
+
+{Reactions}
+🙌🏻 (8) hi5 
+
+[12/08/2022 9:09 AM] gosoul22
+when can we expect the report?
+
+
+==============================================================
+Exported 69 message(s)
+==============================================================
